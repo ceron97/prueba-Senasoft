@@ -20,8 +20,6 @@ class CreateProveedoresTable extends Migration
             $table->integer('telefono')->nullable();
             $table->string('correo')->nullable();
             $table->string('direccion')->nullable();
-            $table->bigInteger('id_producto')->unsigned();
-            $table->foreign('id_producto')->references('id')->on('productos');
             $table->bigInteger('id_empresa')->unsigned();
             $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamps();

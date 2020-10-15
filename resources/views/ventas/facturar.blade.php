@@ -53,5 +53,4 @@
             });
         </script>
     @endif
-
 @stop
