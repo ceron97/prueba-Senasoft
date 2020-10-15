@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use App\Models\Proveedores;
+use App\Models\Solicitar;
 use Illuminate\Http\Request;
 
 class solicitarController extends Controller
@@ -17,7 +18,8 @@ class solicitarController extends Controller
     {
         $producto = Producto::all();
         $provedor = Proveedores::all();
-        return view('bodega.solicitar', compact('producto','provedor'));
+        $solicitar = Solicitar::all();
+        return view('bodega.solicitar', compact('producto','provedor','solicitar'));
     }
 
     /**
@@ -40,7 +42,10 @@ class solicitarController extends Controller
     {
         $solicitar = request()->all();
         $solicitar = request()->except('_token');
-        var_dump($solicitar);
+        Solicitar::insert($solicitar);
+        // var_dump($solicitar); 
+        
+        return back()->with('mensaje', 'se solicito el nuevo producto');
     }
 
     /**
