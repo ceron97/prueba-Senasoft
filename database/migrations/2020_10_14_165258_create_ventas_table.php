@@ -16,12 +16,12 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->string('estado');
-            $table->integer('cantidad');
+            $table->string('id_productos');
+            $table->string('cantidades');
+            $table->string('descripcion');
             $table->string('notificar');
             $table->integer('precio_total_venta');
             $table->timestamp('fecha_venta');
-            $table->bigInteger('id_producto')->unsigned();
-            $table->foreign('id_producto')->references('id')->on('productos');
             $table->bigInteger('id_empresa')->unsigned();
             $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamps();

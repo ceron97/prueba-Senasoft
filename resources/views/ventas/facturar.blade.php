@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <form role="form" method="POST">
+    <form role="form" method="POST" action="{{ route('factura.store') }}">
         @csrf
         <div class="card">
             <div class="card-header">
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <label class="mt-1">{{ $productos[$key]->nombre }}: </label>
-                                    <input type="number" class="form-control input-lg ml-4" name="">
+                                    <input type="number" class="form-control input-lg ml-4" name="productos[]">
                                 </div>
                             </div>
                         </div>
