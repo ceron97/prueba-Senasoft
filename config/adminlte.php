@@ -240,24 +240,21 @@ return [
             'text' => 'Empresas',
             'icon'    => 'fas fa-building',
             'url'  => 'admin/index_admin',
-            'can'  => 'admin',
         ],
         [
             'text' => 'Usuarios',
             'icon'    => 'fas fa-user',
             'url'  => 'admin/usuarios',
-            'can'  => 'admin',
         ],
         [
             'text' => 'Usuarios',
             'icon'    => 'fas fa-user',
             'url'  => 'empresa/usuarios',
-            'can'  => 'empresario',
         ],
         [
-            'text'    => 'Productos',
+            'text'    => 'Ventas',
             'icon'    => 'fas fa-box-open',
-            'url'  => 'producto',
+            'url'  => 'ventas',
         ],
         [
             'text' => 'Solicitar articulos',

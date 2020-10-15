@@ -14,12 +14,12 @@ class Sucursales extends Model
         return $this->belongsTo(User::class, 'id_empresa');
     }
 
-    public function producto()
+    public function municipio()
     {
         return $this->belongsTo(User::class, 'id_municipio');
     }
 
-    public function producto()
+    public function departamento()
     {
         return $this->belongsTo(User::class, 'id_departamento');
     }
