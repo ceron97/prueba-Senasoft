@@ -16,21 +16,21 @@ class Bodega extends Model
 
     public function producto()
     {
-        return $this->belongsTo(User::class, 'id_productos');
+        return $this->belongsTo(Producto::class, 'id_productos');
     }
 
     public function sucursal()
     {
-        return $this->belongsTo(User::class, 'id_sucursal');
+        return $this->belongsTo(Sucursales::class, 'id_sucursal');
     }
 
     public function proveedor()
     {
-        return $this->belongsTo(User::class, 'id_proveedor');
+        return $this->belongsTo(Proveedores::class, 'id_proveedor');
     }
 
     public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 }

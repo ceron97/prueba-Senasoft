@@ -52,6 +52,6 @@ class User extends Authenticatable
 
     public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 }

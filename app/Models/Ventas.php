@@ -9,13 +9,13 @@ class Ventas extends Model
 {
     use HasFactory;
 
-    public function empresa()
+    public function producto()
     {
-        return $this->belongsTo(User::class, 'id_producto');
+        return $this->belongsTo(Producto::class, 'id_producto');
     }
 
     public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 }

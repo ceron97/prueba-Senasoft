@@ -11,11 +11,11 @@ class FacturaProducto extends Model
 
     public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_producto');
+        return $this->belongsTo(Empresas::class, 'id_producto');
     }
 
     public function producto()
     {
-        return $this->belongsTo(User::class, 'id_factura');
+        return $this->belongsTo(Producto::class, 'id_factura');
     }
 }

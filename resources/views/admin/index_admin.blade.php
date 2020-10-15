@@ -21,22 +21,20 @@
           </tr>
         </thead>
         <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>2</td>
-                    <td>3</td>
+        	@foreach ($table as $datos)
+        		<tr>
+                    <th scope="row">{{ $datos->id }}</th>
+                    <td>{{ $datos->nombre }}</td>
+                    <td>{{ $datos->nit_empresa }}</td>
                     <td>
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-pen"></i></button>
                         <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                     </td>
                     <td>
-                    	@if (1==1)
-                    		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditUser"><i class="fas fa-users"></i></button>
-                    	@else
-                    		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalNewUser"><i class="fas fa-users"></i></button>
-                    	@endif
+                		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditUser"><i class="fas fa-users"></i></button>
                     </td>
                 </tr>
+        	@endforeach
         </tbody>
     </table>
 
@@ -76,6 +74,48 @@
 			        	</div>
 		      		</div>
 		      	</div>
+
+		      	<h4 class="ml-3">Datos usuario</h4>
+
+		      	<div class="modal-body">
+                    <div class="card-body">
+			        	<div class="form-group">
+		        			<label>Nombre:</label>
+			        		<div class="input-group">
+			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Usuario" required="">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+
+			        	<div class="form-group">
+			        		<label>Correo:</label>
+			        		<div class="input-group">
+			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Correo" required="" min="0">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+
+			        	<div class="form-group">
+			        		<label>Contraseña:</label>
+			        		<div class="input-group">
+			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Contraseña" required="" min="0">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+		      		</div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -126,60 +166,6 @@
         </div>
     </div>
 
-    <div id="modalNewUser" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Crear usuario</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-body">
-			        	<div class="form-group">
-		        			<label>Nombre:</label>
-			        		<div class="input-group">
-			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Empresa" required="">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-
-			        	<div class="form-group">
-			        		<label>Correo:</label>
-			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Numero" required="" min="0">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-
-			        	<div class="form-group">
-			        		<label>Contraseña:</label>
-			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Numero" required="" min="0">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-		      		</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="modalEditUser" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -193,7 +179,7 @@
 			        	<div class="form-group">
 		        			<label>Nombre:</label>
 			        		<div class="input-group">
-			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Empresa" required="">
+			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Usuario" required="">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>
@@ -205,7 +191,7 @@
 			        	<div class="form-group">
 			        		<label>Correo:</label>
 			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Numero" required="" min="0">
+			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Correo" required="" min="0">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>
@@ -217,7 +203,7 @@
 			        	<div class="form-group">
 			        		<label>Contraseña:</label>
 			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Numero" required="" min="0">
+			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Contraseña" required="" min="0">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>

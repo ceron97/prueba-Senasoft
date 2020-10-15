@@ -47,3 +47,5 @@ Route::get('/admin/index_admin', [AdminController::class, 'index'])->name('index
 Route::get('/admin/usuarios', [AdminController::class, 'usuarios'])->name('usuarios.admin');
 
 Route::get('/empresa/usuarios', [EmpresasController::class, 'usuarios'])->name('usuarios.empresa');
+
+Route::resource('empresas', EmpresasController::class);

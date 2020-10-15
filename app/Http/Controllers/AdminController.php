@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Roles;
+use App\Models\Empresas;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index_admin');
+        return view('admin.index_admin', [
+            'table' => Empresas::all(),
+            'user' => User::all()
+        ]);
     }
 
     public function usuarios()

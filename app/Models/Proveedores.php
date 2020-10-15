@@ -11,11 +11,11 @@ class Proveedores extends Model
 
     public function producto()
     {
-        return $this->belongsTo(User::class, 'id_producto');
+        return $this->belongsTo(Producto::class, 'id_producto');
     }
 
-    public function producto()
+    public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 }

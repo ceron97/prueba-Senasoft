@@ -11,17 +11,17 @@ class Factura extends Model
 
     public function empresa()
     {
-        return $this->belongsTo(User::class, 'id_empresa');
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 
-    public function producto()
+    public function municipio()
     {
-        return $this->belongsTo(User::class, 'id_municipio');
+        return $this->belongsTo(Municipios::class, 'id_municipio');
     }
 
-    public function producto()
+    public function departamento()
     {
-        return $this->belongsTo(User::class, 'id_departamento');
+        return $this->belongsTo(Departamentos::class, 'id_departamento');
     }
 
     public function usuario()
@@ -29,13 +29,13 @@ class Factura extends Model
         return $this->belongsTo(User::class, 'id_usuario');
     }
 
-    public function sucursal()
+    public function venta()
     {
-        return $this->belongsTo(User::class, 'id_venta');
+        return $this->belongsTo(Ventas::class, 'id_venta');
     }
 
-    public function proveedor()
+    public function sucursal()
     {
-        return $this->belongsTo(User::class, 'id_sucursal');
+        return $this->belongsTo(Sucursales::class, 'id_sucursal');
     }
 }
