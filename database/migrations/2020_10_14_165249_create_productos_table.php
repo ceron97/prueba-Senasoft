@@ -21,6 +21,8 @@ class CreateProductosTable extends Migration
             $table->integer('precio');
             $table->integer('codigo');
             $table->timestamp('fecha_garantia');
+            $table->bigInteger('id_bodega')->unsigned();
+            $table->foreign('id_bodega')->references('id')->on('bodegas');
             $table->bigInteger('id_empresa')->unsigned();
             $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamp('created_at')->useCurrent();
