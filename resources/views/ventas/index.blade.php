@@ -29,7 +29,7 @@
                         <td>{{$item->precio}}</td>
                         <td>{{$item->cantidad}}</td>
                         <td>   
-                            <input type="checkbox" name='{{$item->nombre}}' value="{{$item->id}}" > 
+                            <input type="checkbox" name='producto[]' value="{{$item->id}}" > 
                         </td>
                     </tr>
                 @endforeach

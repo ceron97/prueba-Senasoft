@@ -21,15 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('direccion')->nullable();
             $table->integer('telefono')->nullable();
-<<<<<<< HEAD:database/migrations/2020_10_14_162951_create_users_table.php
-            $table->string('rol');
-            // $table->unsignedInteger('id_empresa');
-=======
             $table->bigInteger('role_id')->unsigned()->nullable();
             $table->foreign('role_id')->references('id')->on('roles');
             $table->bigInteger('id_empresa')->unsigned()->nullable();
             $table->foreign('id_empresa')->references('id')->on('empresas');
->>>>>>> 8199eceb7daca29dd2dd70977acdbc10ee046734:database/migrations/2020_10_14_171759_create_users_table.php
             $table->timestamps();
         });
     }
