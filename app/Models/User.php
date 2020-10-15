@@ -20,11 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-<<<<<<< HEAD
-        'rol',
-        'id_empresas',
-=======
->>>>>>> 8199eceb7daca29dd2dd70977acdbc10ee046734
     ];
 
     /**
@@ -50,10 +45,6 @@ class User extends Authenticatable
         return 'home';
     }
 
-<<<<<<< HEAD
-    public function empresa(){ //$libro->categoria->nombre
-        return $this->belongsTo(Empresas::class); //Pertenece a una categoría.
-=======
     public function roles()
     {
         return $this->belongsTo(Roles::class, 'role_id');
@@ -62,6 +53,5 @@ class User extends Authenticatable
     public function empresa()
     {
         return $this->belongsTo(Empresas::class, 'id_empresa');
->>>>>>> 8199eceb7daca29dd2dd70977acdbc10ee046734
     }
 }
