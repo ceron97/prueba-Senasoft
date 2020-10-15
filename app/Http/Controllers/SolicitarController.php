@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Proveedores;
 use App\Models\Solicitar;
+use App\Models\User;
+use App\Models\Bodega;
 use Illuminate\Http\Request;
 
 class solicitarController extends Controller
@@ -18,8 +20,10 @@ class solicitarController extends Controller
     {
         $producto = Producto::all();
         $provedor = Proveedores::all();
-        $solicitar = Solicitar::all();
-        return view('bodega.solicitar', compact('producto','provedor','solicitar'));
+        $bodega = Bodega::all();
+        $idUser = auth()->id();
+        $datosUser = User::all()->where('id', $idUser);
+        return view('bodega.solicitar', compact('producto', 'provedor', 'bodega', 'datosUser'));
     }
 
     /**
@@ -42,9 +46,17 @@ class solicitarController extends Controller
     {
         $solicitar = request()->all();
         $solicitar = request()->except('_token');
+
+        $solicitar = request()->except('_token');
+
         Solicitar::insert($solicitar);
-        // var_dump($solicitar); 
         
+        $producto = Producto::all();
+        $provedor = Proveedores::all();
+        $bodega = Bodega::all();
+        $idUser = auth()->id();
+        $datosUser = User::all()->where('id', $idUser);
+
         return back()->with('mensaje', 'se solicito el nuevo producto');
     }
 
