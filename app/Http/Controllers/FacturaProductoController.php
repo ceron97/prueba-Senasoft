@@ -23,7 +23,12 @@ class FacturaProductoController extends Controller
      */
     public function create()
     {
-        //
+        $factura = $request->all();
+        $factura = $request->except()->token;
+
+        Factura::insert($factura);
+
+        return redirect()->action(VentasController::class, 'store')->with('mensaje', 'Factura creada');
     }
 
     /**
@@ -34,7 +39,7 @@ class FacturaProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
