@@ -107,7 +107,7 @@
                                 <label>Empresa:</label>
                                 <select class="form-control" name="id_empresa" id="sel1" required>
                                     @foreach ($empresas as $item)
-                                        <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
                                     @endforeach
                                 </select>
                             </div>

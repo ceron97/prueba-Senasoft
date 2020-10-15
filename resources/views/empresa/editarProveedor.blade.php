@@ -79,5 +79,5 @@
         </script>
     @endif
     
-    @endif
+    
 @stop

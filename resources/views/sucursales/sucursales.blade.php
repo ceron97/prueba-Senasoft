@@ -82,21 +82,21 @@
                         <div class="form-group">
                             <select class="form-control" name="id_empresas" id="sel1" required>
                                 @foreach ($empresa as $item)
-                                    <option value="{{$item->id}}">{{$item->nombre}}</option>
+                                    <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <select class="form-control" name="id_municipio" id="sel1" required>
                                 @foreach ($municipio as $item)
-                                    <option value="{{$item->id}}">{{$item->nombre_municipio}}</option>
+                                    <option value="{{$item->id}}">{{$item->nombre_municipios}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <select class="form-control" name="id_departamento" id="sel1" required>
                                 @foreach ($departamento as $item)
-                            <option value="{{$item->id}}">{{$item->nombre_departamento}}</option>
+                            <option value="{{$item->id}}">{{$item->nombre_departamentos}}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -45,7 +45,7 @@ class ProveedoresController extends Controller
         $provedor = request()->except('_token');
         Proveedores::insert($provedor);
 
-        return back()->with('mensaje', '¡se Creo el proveedor correctamente!');
+        return back()->with('mensaje', '¡Se reo el proveedor correctamente!');
         
     }
 
