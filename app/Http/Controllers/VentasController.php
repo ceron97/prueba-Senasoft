@@ -37,15 +37,34 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        $selected = $request->producto;
 
-        $i = 0;
-        foreach($selected as $value){
-            $venta[$i] = producto::findOrFail($value[$i]);
-            $i= $i+1;
+        $inputValue = $request->all();
+
+        $request->validate([
+            'producto' => 'required',
+        ]);
+
+        $arrayTostring = implode(',', $request->input('producto'));
+
+
+        $productos = Producto::all();
+
+        $arrayProductos= preg_split("/[,]/",$arrayTostring);
+
+        $i=0;
+        $a=0;
+
+        foreach ($arrayProductos as $keyArrayProductos) {
+            foreach ($productos as $keyProductos) {
+                if ($arrayProductos[$i] == $productos[$a]->id) {
+                    echo $productos[$a]->nombre. " - ";
+                    break;
+                }
+                $a=$a+1;
+            }
+            $i=$i+1;
+            $a=0;
         }
-        return $venta[1];
-        
     }
 
     /**
