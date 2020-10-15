@@ -42,7 +42,7 @@ class solicitarController extends Controller
     {
         $solicitar = request()->all();
         $solicitar = request()->except('_token');
-        Solicitar::insert($solicitar);
+        // Solicitar::insert($solicitar);
         // var_dump($solicitar); 
         
         return back()->with('mensaje', 'se solicito el nuevo producto');

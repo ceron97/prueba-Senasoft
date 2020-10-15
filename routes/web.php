@@ -9,6 +9,7 @@ use App\Http\Controllers\VentasController;
 use App\Http\Controllers\SucursalesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpresasController;
+use App\Http\Controllers\ProveedoresController;
 
 
 /*
@@ -49,4 +50,4 @@ Route::get('/admin/usuarios', [AdminController::class, 'usuarios'])->name('usuar
 
 Route::get('/empresa/usuarios', [EmpresasController::class, 'usuarios'])->name('usuarios.empresa');
 
-Route::get('/empresa/proveedores', [EmpresasController::class, 'proveedores'])->name('proveedores.empresa');
+Route::resource('proveedores', ProveedoresController::class);

@@ -25,8 +25,6 @@ class CreateSolicitarTable extends Migration
             $table->integer('id_proveedor');
             $table->string('nombre_proveedor');
             $table->integer('id_empresa');
-            $table->string('nombre_empresa');
-            $table->timestamps();
         });
     }
 

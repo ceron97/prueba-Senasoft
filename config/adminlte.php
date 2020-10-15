@@ -276,7 +276,7 @@ return [
         ],
         [
             'text' => 'Proveedores',
-            'url'  => 'empresa/proveedores',
+            'url'  => 'proveedores',
             'icon' => 'fas fa-cash-register',
         ],
         [
