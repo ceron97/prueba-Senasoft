@@ -239,7 +239,7 @@ return [
         [
             'text' => 'Empresas',
             'icon'    => 'fas fa-building',
-            'url'  => 'admin/index_admin',
+            'url'  => 'admin',
         ],
         [
             'text' => 'Usuarios',

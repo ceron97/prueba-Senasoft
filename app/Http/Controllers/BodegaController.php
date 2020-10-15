@@ -14,6 +14,7 @@ class BodegaController extends Controller
      */
     public function index()
     {
+        $hola = 0;
         $productos = Producto::all();
         return view('bodega.producto',compact('productos'));
     }

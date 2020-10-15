@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Roles;
 use App\Models\Empresas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -16,22 +17,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index_admin', [
-            'table' => Empresas::all(),
-            'user' => User::all()
-        ]);
-    }
-
-    public function usuarios()
-    {
-        //$users = User::with('docente')->orderBy('id', 'ASC')->paginate(10);
-
-        $users = User::whereHas('roles', function($q) {
-            $q->where('rol', 'Administrador');
-        })->get();
-
-        return view('admin.usuarios', compact('users'));
-
+        $table = Empresas::all();
+        return view('admin.index_admin',compact('table'));
     }
 
     /**
@@ -41,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -52,7 +39,16 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new Empresas;
+        $user->name = $request->name;
+        $user->telefono = $request->telefono;
+        $user->direccion = $request->direccion;
+        $user->email = $request->email;
+        $user->ciudad = $request->ciudad;
+        $user->password = Hash::make( $request->password);
+
+        $user->save();
+        return back();
     }
 
     /**
@@ -61,7 +57,7 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(Empresas $admin)
     {
         //
     }
@@ -72,7 +68,7 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Empresas $admin)
     {
         //
     }
@@ -84,7 +80,7 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, Empresas $admin)
     {
         //
     }
@@ -95,7 +91,7 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Empresas $admin)
     {
         //
     }
