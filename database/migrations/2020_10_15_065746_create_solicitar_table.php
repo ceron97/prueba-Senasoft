@@ -20,9 +20,10 @@ class CreateSolicitarTable extends Migration
             $table->integer('cantidad_producto');
             $table->integer('codigo_producto');
             $table->integer('id_bodega');
-            $table->string('nombre_bodega');
             $table->integer('id_usuario');
             $table->string('nombre_usuario');
+            $table->integer('id_proveedor');
+            $table->string('nombre_proveedor');
             $table->integer('id_empresa');
             $table->string('nombre_empresa');
             $table->timestamps();

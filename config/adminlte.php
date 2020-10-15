@@ -275,6 +275,11 @@ return [
             'icon' => 'fas fa-cash-register',
         ],
         [
+            'text' => 'Proveedores',
+            'url'  => 'empresa/proveedores',
+            'icon' => 'fas fa-cash-register',
+        ],
+        [
             'text' => 'Sucursales',
             'url'  => 'sucursales',
             'icon' => 'fas fa-fw fa-lock',

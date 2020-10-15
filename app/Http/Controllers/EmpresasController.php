@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
 class EmpresasController extends Controller
@@ -25,6 +26,14 @@ class EmpresasController extends Controller
         })->get();
         
         return view('empresa.usuarios', compact('users'));
+
+    }
+
+    public function proveedores()
+    {
+        $proveedores = Proveedores::all();
+        
+        return view('empresa.proveedores', compact('proveedores'));
 
     }
 

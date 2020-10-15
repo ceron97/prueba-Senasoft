@@ -49,5 +49,4 @@ Route::get('/admin/usuarios', [AdminController::class, 'usuarios'])->name('usuar
 
 Route::get('/empresa/usuarios', [EmpresasController::class, 'usuarios'])->name('usuarios.empresa');
 
-Route::resource('empresas', EmpresasController::class);
-
+Route::get('/empresa/proveedores', [EmpresasController::class, 'proveedores'])->name('proveedores.empresa');

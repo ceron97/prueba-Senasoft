@@ -18,8 +18,6 @@ class CreateBodegasTable extends Migration
             $table->integer('codigo');
             $table->bigInteger('id_usuarios')->unsigned();
             $table->foreign('id_usuarios')->references('id')->on('usuarios');
-            $table->bigInteger('id_productos')->unsigned();
-            $table->foreign('id_productos')->references('id')->on('productos');
             $table->bigInteger('id_sucursal')->unsigned();
             $table->foreign('id_sucursal')->references('id')->on('sucursales');
             $table->bigInteger('id_proveedor')->unsigned();

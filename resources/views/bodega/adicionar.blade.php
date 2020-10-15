@@ -18,12 +18,21 @@
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Proveedor:</h4>
-                            <input name="proveedor" class="ml-4" type="text" name="proveedor" id="myFruit" list="mySuggestion">
+                            <input name="proveedor" class="form-control ml-4" type="text" name="proveedor" id="myFruit" list="mySuggestion">
                             <datalist id="mySuggestion">
                                 @foreach ($productos as $item)
                                     <option>{{$item->proveedor}}</option>
                                 @endforeach
                             </datalist>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group">    
+                            <h4>Nombre:</h4>
+                            <input name="nombre" type="text" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
                       </div>
                     </div>
@@ -33,9 +42,17 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <div class="input-group">    
-                            <h4>Nombre del producto:</h4>
-                            <input name="nombre" type="text" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                            
+                            <h4>Descripción:</h4>
+                            <input name="descripcion" type="text" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group">    
+                            <h4>Cantidad:</h4>
+                            <input name="cantidad" type="number" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
                       </div>
                     </div>
@@ -46,42 +63,37 @@
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Precio por unidad:</h4>
-                            <input name="precio" type="text" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                
+                            <input name="precio" type="number" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <div class="input-group">    
+                            <h4>Codigo:</h4>
+                            <input name="codigo" type="number" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
                       </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Años de garantia:</h4>
                             <input name="fecha_garantia" type="number" min="0" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                
                         </div>
                       </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group">    
-                            <h4>Codigo:</h4>
-                            <input name="codigo" type="text" class="form-control ml-4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                <br>
-
+            </div>
+            <div class="card-footer text-center">
                 <button type="submit" class="btn btn-primary">
-	        		Adicionar
-	        	</button>
+                    Adicionar
+                </button>
             </div>
         </div>
     </form>
