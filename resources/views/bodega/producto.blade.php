@@ -17,6 +17,7 @@
         <th scope="col">descripcion</th>
         <th scope="col">precio</th>
         <th scope="col">cantidad</th>
+        <th scope="col">garantia</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -27,6 +28,7 @@
                 <td>{{$item->descripcion}}</td>
                 <td>{{$item->precio}}</td>
                 <td>{{$item->cantidad}}</td>
+                <td>{{$item->fecha_garantia}}</td>
                 <td>
                     <button class="btn btn-warning col-md-3"><i class="fas fa-pen"></i></button>
                     <button class="btn btn-danger col-md-3"><i class="fas fa-trash"></i></button>

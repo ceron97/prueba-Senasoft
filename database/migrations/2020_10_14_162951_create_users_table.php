@@ -22,8 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('direccion')->nullable();
             $table->integer('telefono')->nullable();
             $table->string('rol');
-            $table->bigInteger('id_empresa')->unsigned();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            // $table->unsignedInteger('id_empresa');
             $table->timestamps();
         });
     }

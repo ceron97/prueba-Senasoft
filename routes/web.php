@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SucursalesController;
+use App\Http\Controllers\BodegaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,5 @@ Route::get('/adicionar', function () {
 })->name('adicionar');
 
 Route::get('/sucursales', [SucursalesController::class, 'index'])->name('sucursales');
+
+Route::resource('bodega', BodegaController::class);

@@ -242,9 +242,9 @@ return [
             'can'  => 'admin',
         ],
         [
-            'text'    => 'Productos',
+            'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
-            'url'  => 'producto',
+            'url'  => 'bodega',
         ],
         [
             'text' => 'Solicitar articulos',
@@ -254,7 +254,7 @@ return [
         // ['header' => 'account_settings'],
         [
             'text' => 'Adicionar',
-            'url'  => 'adicionar',
+            'url'  => 'bodega/create',
             'icon' => 'fas fa-cash-register',
         ],
         [

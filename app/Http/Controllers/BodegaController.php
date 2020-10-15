@@ -3,27 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class BodegaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Pagina principal de bodega, muestra una tabla con todos los productos
      *
-     * @return \Illuminate\Http\Response
+     * @return //vista de los productos
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('bodega.producto',compact('productos'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Vista para que el encargado de la bodega ingrese nuevos productos
      *
-     * @return \Illuminate\Http\Response
+     * @return //formulario para crear nuevo formulario
      */
     public function create()
     {
-        //
+        $productos = Producto::all();
+        return view('bodega.adicionar',compact('productos'));
     }
 
     /**
@@ -34,7 +37,18 @@ class BodegaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        $productoNuevo = new Producto;
+        $productoNuevo->nombre = $request->nombre;
+        $productoNuevo->proveedor = $request->proveedor;
+        $productoNuevo->fecha_garantia = $request->fecha_garantia;
+        $productoNuevo->codigo = $request->codigo;
+        $productoNuevo->precio = $request->precio;
+
+        $productoNuevo->save();
+
+        return view('bodega.create')->with('mensaje', 'Pedido realisado');
+        
     }
 
     /**

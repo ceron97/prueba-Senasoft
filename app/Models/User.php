@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'rol',
+        'id_empresas',
     ];
 
     /**
@@ -44,5 +45,9 @@ class User extends Authenticatable
 
     public function adminlte_profile_url(){
         return 'home';
+    }
+
+    public function empresa(){ //$libro->categoria->nombre
+        return $this->belongsTo(Empresas::class); //Pertenece a una categoría.
     }
 }

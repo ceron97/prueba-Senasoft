@@ -1,13 +1,43 @@
-@extends('adminlte::auth.register')
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>Signin Template · Bootstrap</title>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-                <div class="card-body">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header">{{ __('Resgistrar') }}</div>
+  
+                  <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -68,10 +98,18 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            @if (Route::has('login'))
+                            <a class="btn btn-link ml-5" href="{{ route('login') }}">
+                                {{ __('Ya tengo una cuenta') }}
+                            </a>
+                            @endif
+                      </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+</html>

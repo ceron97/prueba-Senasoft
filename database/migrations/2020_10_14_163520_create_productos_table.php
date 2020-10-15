@@ -20,9 +20,8 @@ class CreateProductosTable extends Migration
             $table->integer('cantidad');
             $table->integer('precio');
             $table->integer('codigo');
-            $table->timestamp('fecha_garantia');
-            $table->bigInteger('id_empresa')->unsigned();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->integer('fecha_garantia');
+            $table->string('proveedor');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
