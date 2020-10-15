@@ -21,13 +21,13 @@
     </tr>
     </thead>
     <tbody>
-        @foreach ($productos as $item)
+        @foreach ($venta as $item)
             <tr>
-                <th scope="row">{{$item->nombre}}</th>
-                <td>{{$item->descripcion}}</td>
-                <td>{{$item->precio}}</td>
-                <td>{{$item->cantidad}}</td>
-                <td>{{$item->fecha_garantia}}</td>
+                <th scope="row">{{$item->precio}}</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                     
                 </td>

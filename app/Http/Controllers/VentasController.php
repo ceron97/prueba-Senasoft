@@ -39,13 +39,13 @@ class VentasController extends Controller
     {
         $selected = $request->producto;
 
-        var_dump($selected);
-
-        // foreach ($productos as $key => $value) {
-        //     $partes = Producto::all()->where('id', $value->);
-            
-        // }
-
+        $i = 0;
+        foreach($selected as $value){
+            $venta[$i] = producto::findOrFail($value[$i]);
+            $i= $i+1;
+        }
+        return $venta[1];
+        
     }
 
     /**
@@ -73,7 +73,6 @@ class VentasController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
