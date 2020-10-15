@@ -46,6 +46,8 @@ Route::resource('ventas', VentasController::class);// se llama todos los recuers
 
 Route::get('/admin/index_admin', [AdminController::class, 'index'])->name('index.admin');
 
+Route::get('/admin/usuarios', [AdminController::class, 'index'])->name('index.admin');
+
 Route::resource('admin',AdminController::class);
 
 Route::get('/empresa/usuarios', [EmpresasController::class, 'usuarios'])->name('usuarios.empresa');

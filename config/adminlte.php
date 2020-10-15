@@ -242,20 +242,20 @@ return [
             'url'  => 'admin',
         ],
         [
-            'text' => 'Usuarios',
+            'text' => 'Usuarios admin',
             'icon'    => 'fas fa-user',
             'url'  => 'admin/usuarios',
+        ],
+        [
+            'text' => 'Usuarios user',
+            'icon'    => 'fas fa-user',
+            'url'  => 'empresa/usuarios',
         ],
         [
             
             'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
             'url'  => 'bodega',
-        ],
-        [
-            'text' => 'Usuarios',
-            'icon'    => 'fas fa-user',
-            'url'  => 'empresa/usuarios',
         ],
         [
             'text'    => 'Ventas',
