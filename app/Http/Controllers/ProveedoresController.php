@@ -28,7 +28,9 @@ class ProveedoresController extends Controller
      */
     public function create()
     {
-        //
+        $proveedores = Proveedores::all();
+        
+        return view('empresa.proveedores', compact('proveedores'));
     }
 
     /**
