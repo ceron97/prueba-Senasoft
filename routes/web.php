@@ -32,10 +32,6 @@ Auth::routes();
 
 Route::get('/users/index', [UsuariosController::class, 'index'])->name('usuarios');
 
-Route::get('/solicitar', function () {
-    return view('solicitar');
-})->name('solicitar');
-
 Route::resource('solicitar', BodegaController::class);// se llama todos los recuersos de Bodega  
 
 Route::get('/adicionar', function () {

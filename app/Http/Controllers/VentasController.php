@@ -37,11 +37,19 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        $productos = request()->all();
-        $productos = request()->except('_token');
-        $productos["0"] = $productos['0'];
-           
-        var_dump($productos);
+        $selected = $request->producto;
+        $i = 0;
+        foreach($selected as $value){
+            $venta[$i] = producto::findOrFail($value[$i]);
+            $i= $i+1;
+        }
+        return $venta[1];
+
+        // $venta['cantidad'] = $venta['cantidad'] - 3;
+        
+        // return $venta['cantidad'] ;
+
+        
     }
 
     /**
