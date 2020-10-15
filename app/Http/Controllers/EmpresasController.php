@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmpresasController extends Controller
@@ -14,6 +15,17 @@ class EmpresasController extends Controller
     public function index()
     {
         //
+    }
+
+    public function usuarios()
+    {
+        //$users = User::with('docente')->orderBy('id', 'ASC')->paginate(10);
+        $users = User::whereHas('roles', function($q) {
+            $q->where('rol', '<>', 'Administrador');
+        })->get();
+        
+        return view('empresa.usuarios', compact('users'));
+
     }
 
     /**

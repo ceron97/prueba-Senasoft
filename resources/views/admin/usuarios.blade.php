@@ -4,39 +4,35 @@
 @section('plugins.Sweetalert2', true)
     
 @section('content_header')
-    <h1>Empresas</h1>
+    <h1>Usuarios</h1>
 @stop
 
 @section('content')
-    <button type="button" class="btn btn-info btn-lg mb-3" data-toggle="modal" data-target="#modalNew">Agregar empresa</button>
+    <button type="button" class="btn btn-info btn-lg mb-3" data-toggle="modal" data-target="#modalNew">Agregar usuario</button>
 
     <table class="table text-center">
         <thead class="thead-dark ">
           <tr class="center">
-            <th scope="col">Empresa</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Nit</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Teléfono</th>
             <th scope="col">Acciones</th>
-            <th scope="col">Empresario</th>
           </tr>
         </thead>
         <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>2</td>
-                    <td>3</td>
+        	@foreach ($users as $user)
+    			<tr>
+                    <th scope="row">{{ $user->name }}</th>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->direccion }}</td>
+                    <td>{{ $user->telefono }}</td>
                     <td>
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-pen"></i></button>
                         <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                     </td>
-                    <td>
-                    	@if (1==1)
-                    		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalEditUser"><i class="fas fa-users"></i></button>
-                    	@else
-                    		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalNewUser"><i class="fas fa-users"></i></button>
-                    	@endif
-                    </td>
                 </tr>
+        	@endforeach
         </tbody>
     </table>
 
@@ -46,7 +42,7 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Crear empresa</h4>
+                    <h4 class="modal-title">Agregar usuario</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -64,9 +60,33 @@
 			        	</div>
 
 			        	<div class="form-group">
-			        		<label>Nit:</label>
+			        		<label>Correo:</label>
 			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+
+			        	<div class="form-group">
+			        		<label>Dirección:</label>
+			        		<div class="input-group">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+
+			        	<div class="form-group">
+			        		<label>Telefono:</label>
+			        		<div class="input-group">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>
@@ -85,102 +105,6 @@
 
     <!-- Modal -->
     <div id="modalEdit" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Editar empresa</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-body">
-			        	<div class="form-group">
-		        			<label>Nombre:</label>
-			        		<div class="input-group">
-			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Empresa" required="">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-
-			        	<div class="form-group">
-			        		<label>Nit:</label>
-			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-		      		</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modalNewUser" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Crear usuario</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-body">
-			        	<div class="form-group">
-		        			<label>Nombre:</label>
-			        		<div class="input-group">
-			        			<input type="text" class="form-control input-lg" name="empresa" placeholder="Empresa" required="">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-
-			        	<div class="form-group">
-			        		<label>Correo:</label>
-			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Numero" required="" min="0">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-
-			        	<div class="form-group">
-			        		<label>Contraseña:</label>
-			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Numero" required="" min="0">
-			        			<div class="input-group-append">
-					            	<div class="input-group-text">
-					                	<i class="fas fa-user"></i>
-					            	</div> 
-					            </div>
-			        		</div>
-			        	</div>
-		      		</div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modalEditUser" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -205,7 +129,7 @@
 			        	<div class="form-group">
 			        		<label>Correo:</label>
 			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="correo" placeholder="Numero" required="" min="0">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>
@@ -215,9 +139,21 @@
 			        	</div>
 
 			        	<div class="form-group">
-			        		<label>Contraseña:</label>
+			        		<label>Dirección:</label>
 			        		<div class="input-group">
-			        			<input type="number" class="form-control input-lg" name="contraseña" placeholder="Numero" required="" min="0">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
+			        			<div class="input-group-append">
+					            	<div class="input-group-text">
+					                	<i class="fas fa-user"></i>
+					            	</div> 
+					            </div>
+			        		</div>
+			        	</div>
+
+			        	<div class="form-group">
+			        		<label>Telefono:</label>
+			        		<div class="input-group">
+			        			<input type="mail" class="form-control input-lg" name="nit" placeholder="Numero" required="" min="0">
 			        			<div class="input-group-append">
 					            	<div class="input-group-text">
 					                	<i class="fas fa-user"></i>
@@ -234,3 +170,4 @@
         </div>
     </div>
 @stop
+

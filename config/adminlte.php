@@ -237,9 +237,22 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'Usuarios',
-            'url'  => 'home',
+            'text' => 'Empresas',
+            'icon'    => 'fas fa-building',
+            'url'  => 'admin/index_admin',
             'can'  => 'admin',
+        ],
+        [
+            'text' => 'Usuarios',
+            'icon'    => 'fas fa-user',
+            'url'  => 'admin/usuarios',
+            'can'  => 'admin',
+        ],
+        [
+            'text' => 'Usuarios',
+            'icon'    => 'fas fa-user',
+            'url'  => 'empresa/usuarios',
+            'can'  => 'empresario',
         ],
         [
             'text'    => 'Productos',

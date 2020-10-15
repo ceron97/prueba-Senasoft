@@ -9,7 +9,6 @@
 @stop
 
 @section('content')
-
     <button type="button" class="btn btn-info btn-lg mb-3" data-toggle="modal" data-target="#modalNew">Agregar sucursal</button>
 
     <table class="table text-center">

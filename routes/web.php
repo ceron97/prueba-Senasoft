@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SucursalesController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmpresasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +41,9 @@ Route::get('/adicionar', function () {
 })->name('adicionar');
 
 Route::get('/sucursales', [SucursalesController::class, 'index'])->name('sucursales');
+
+Route::get('/admin/index_admin', [AdminController::class, 'index'])->name('index.admin');
+
+Route::get('/admin/usuarios', [AdminController::class, 'usuarios'])->name('usuarios.admin');
+
+Route::get('/empresa/usuarios', [EmpresasController::class, 'usuarios'])->name('usuarios.empresa');
