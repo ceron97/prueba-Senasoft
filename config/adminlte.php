@@ -247,11 +247,11 @@ return [
             'url'  => 'admin/usuarios',
         ],
         [
-<<<<<<< HEAD
+            
             'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
             'url'  => 'bodega',
-=======
+
             'text' => 'Usuarios',
             'icon'    => 'fas fa-user',
             'url'  => 'empresa/usuarios',
@@ -260,7 +260,7 @@ return [
             'text'    => 'Ventas',
             'icon'    => 'fas fa-shopping-cart ',
             'url'  => 'ventas',
->>>>>>> 8199eceb7daca29dd2dd70977acdbc10ee046734
+
         ],
         [
             'text' => 'Solicitar articulos',
