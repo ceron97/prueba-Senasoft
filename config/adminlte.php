@@ -251,7 +251,8 @@ return [
             'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
             'url'  => 'bodega',
-
+        ],
+        [
             'text' => 'Usuarios',
             'icon'    => 'fas fa-user',
             'url'  => 'empresa/usuarios',

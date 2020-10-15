@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuariosController;
-use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\SolicitarController;
 use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\SucursalesController;
@@ -32,7 +32,7 @@ Auth::routes();
 
 Route::get('/users/index', [UsuariosController::class, 'index'])->name('usuarios');
 
-Route::resource('solicitar', BodegaController::class);// se llama todos los recuersos de Bodega  
+Route::resource('solicitar', SolicitarController::class);// se llama todos los recuersos de solicitar  
 
 Route::get('/adicionar', function () {
     return view('adicionar');
