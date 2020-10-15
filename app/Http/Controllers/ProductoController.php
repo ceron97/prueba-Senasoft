@@ -14,9 +14,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
-        return view('producto', compact('productos'));
+        
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,9 +35,9 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -68,9 +69,11 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $id)
     {
-        //
+        $ventas = Producto::findOrfail($id);
+        
+        
     }
 
     /**

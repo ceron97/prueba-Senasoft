@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Municipios extends Model
 {
     use HasFactory;
+
+    public function producto()
+    {
+        return $this->belongsTo(Departamentos::class, 'id_departamento');
+    }
 }

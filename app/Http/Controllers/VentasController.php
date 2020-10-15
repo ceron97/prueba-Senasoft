@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Http\Arr;
+
 
 class VentasController extends Controller
 {
@@ -13,7 +15,8 @@ class VentasController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('ventas.index', compact('productos'));
     }
 
     /**
@@ -34,7 +37,11 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productos = request()->all();
+        $productos = request()->except('_token');
+        $productos["0"] = $productos['0'];
+           
+        var_dump($productos);
     }
 
     /**

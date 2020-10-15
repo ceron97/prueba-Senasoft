@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
+use App\Models\Roles;
+use App\Models\Empresas;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -14,7 +16,22 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.index_admin', [
+            'table' => Empresas::all(),
+            'user' => User::all()
+        ]);
+    }
+
+    public function usuarios()
+    {
+        //$users = User::with('docente')->orderBy('id', 'ASC')->paginate(10);
+
+        $users = User::whereHas('roles', function($q) {
+            $q->where('rol', 'Administrador');
+        })->get();
+
+        return view('admin.usuarios', compact('users'));
+
     }
 
     /**
