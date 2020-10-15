@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proveedores;
+use App\Models\Empresas;
+
 use Illuminate\Http\Request;
 
 class ProveedoresController extends Controller
@@ -13,7 +16,9 @@ class ProveedoresController extends Controller
      */
     public function index()
     {
-        //
+        $proveedores = Proveedores::all();
+        $empresas = Empresas::all();
+        return view('empresa.proveedores', compact('proveedores', 'empresas'));
     }
 
     /**
@@ -23,7 +28,9 @@ class ProveedoresController extends Controller
      */
     public function create()
     {
-        //
+        $proveedores = Proveedores::all();
+        
+        return view('empresa.proveedores', compact('proveedores'));
     }
 
     /**
@@ -34,7 +41,12 @@ class ProveedoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $provedor = request()->all();
+        $provedor = request()->except('_token');
+        Proveedores::insert($provedor);
+
+        return back()->with('mensaje', '¡se Creo el proveedor correctamente!');
+        
     }
 
     /**
@@ -56,7 +68,9 @@ class ProveedoresController extends Controller
      */
     public function edit($id)
     {
-        //
+        $provedor = Proveedores::findOrFail($id);
+        $empresas = Empresas::all();
+        return view('empresa.editarProveedor', compact('provedor','empresas'));
     }
 
     /**
@@ -68,7 +82,12 @@ class ProveedoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $provedorEditado = request()->all();
+        $provedorEditado = request()->except('_token','_method');
+
+        Proveedores::where('id', '=', $id)->update($provedorEditado);
+
+        return back()->with('mensaje', 'Se Modifico correctamente');
     }
 
     /**
@@ -79,6 +98,8 @@ class ProveedoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $provedorEditado =Proveedores::findOrFail($id);
+        Proveedores::destroy($id);
+        return back()->with('mensaje', 'Proveedor se elimino correctamente');
     }
 }

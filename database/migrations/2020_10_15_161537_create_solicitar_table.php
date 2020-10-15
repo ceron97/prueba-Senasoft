@@ -16,12 +16,10 @@ class CreateSolicitarTable extends Migration
         Schema::create('solicitar', function (Blueprint $table) {
             $table->id();
             $table->integer('id_producto');
-            $table->string('nombre_producto');
             $table->integer('cantidad_producto');
-            $table->integer('codigo_producto');
-            $table->integer('id_bodega');
+            $table->integer('codigo_bodega');
             $table->integer('id_usuario');
-            $table->string('nombre_usuario');
+            $table->integer('id_proveedor');
             $table->integer('id_empresa');
             $table->timestamps();
         });

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Producto;
 use App\Models\Proveedores;
+use App\Models\Solicitar;
+use App\Models\User;
+use App\Models\Bodega;
 use Illuminate\Http\Request;
 
-class EmpresasController extends Controller
+class solicitarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,18 +18,12 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        
-    }
-
-    public function usuarios()
-    {
-        //$users = User::with('docente')->orderBy('id', 'ASC')->paginate(10);
-        $users = User::whereHas('roles', function($q) {
-            $q->where('rol', '<>', 'Administrador');
-        })->get();
-        
-        return view('empresa.usuarios', compact('users'));
-
+        $producto = Producto::all();
+        $provedor = Proveedores::all();
+        $bodega = Bodega::all();
+        $idUser = auth()->id();
+        $datosUser = User::all()->where('id', $idUser);
+        return view('bodega.solicitar', compact('producto', 'provedor', 'bodega', 'datosUser'));
     }
 
     /**
@@ -47,7 +44,20 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $solicitar = request()->all();
+        $solicitar = request()->except('_token');
+
+        $solicitar = request()->except('_token');
+
+        Solicitar::insert($solicitar);
+        
+        $producto = Producto::all();
+        $provedor = Proveedores::all();
+        $bodega = Bodega::all();
+        $idUser = auth()->id();
+        $datosUser = User::all()->where('id', $idUser);
+
+        return back()->with('mensaje', 'se solicito el nuevo producto');
     }
 
     /**

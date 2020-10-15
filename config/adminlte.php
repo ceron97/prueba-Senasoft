@@ -251,7 +251,8 @@ return [
             'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
             'url'  => 'bodega',
-
+        ],
+        [
             'text' => 'Usuarios',
             'icon'    => 'fas fa-user',
             'url'  => 'empresa/usuarios',
@@ -271,6 +272,11 @@ return [
         [
             'text' => 'Adicionar',
             'url'  => 'bodega/create',
+            'icon' => 'fas fa-cash-register',
+        ],
+        [
+            'text' => 'Proveedores',
+            'url'  => 'proveedores',
             'icon' => 'fas fa-cash-register',
         ],
         [

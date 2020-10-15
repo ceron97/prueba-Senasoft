@@ -9,7 +9,7 @@
 
 @section('content')
     
-    <form action="{{route('ventas.store')}}" method="post">
+    <form action="{{route('ventas.store')}}" method="post"> 
         @csrf
         <table class="table">
             <thead class="thead-dark ">
@@ -35,38 +35,10 @@
                 @endforeach
             </tbody>
         </table>
-        <button type="submit" data-toggle="modal" data-target="#Facturar" class="btn btn-danger">Facturar</button>
+        <button type="submit" class="btn btn-danger">Facturar</button>
     </form>
 
-    <!-- Modal para facturar las ventas  -->
-    <div id="Facturar" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Crear nueva sucursal</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <form action="{{ route('ventas.store') }}"  class="" method="post">
-                    <div class="modal-body">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <div class="input-group">
-                                  <label class="mt-1">Articulo 1: </label>
-                                  <input type="text" class="form-control input-lg ml-4" name="inputDocumentoProveedor" readonly="" id="inputDocumentoProveedor">
-                                </div>
-                              </div>
-                            </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Registrar</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
     
 @stop
 

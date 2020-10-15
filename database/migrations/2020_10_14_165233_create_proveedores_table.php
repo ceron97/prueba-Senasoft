@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Proveedores;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,8 +20,6 @@ class CreateProveedoresTable extends Migration
             $table->integer('telefono')->nullable();
             $table->string('correo')->nullable();
             $table->string('direccion')->nullable();
-            $table->bigInteger('id_producto')->unsigned();
-            $table->foreign('id_producto')->references('id')->on('productos');
             $table->bigInteger('id_empresa')->unsigned();
             $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamps();
@@ -37,3 +36,5 @@ class CreateProveedoresTable extends Migration
         Schema::dropIfExists('proveedores');
     }
 }
+
+

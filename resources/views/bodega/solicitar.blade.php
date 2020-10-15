@@ -4,30 +4,65 @@
 @section('plugins.Sweetalert2', true)
 
 @section('content')
+  <div class="card">
+    {{-- formulario para solicitar producto  --}}
+    <form action="{{route('solicitar.store')}}" method="POST">
+      @csrf
+      <div class="card-header">
+        <h3>Solicitar Productos</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="mb-2">Seleciona el Codigo del Producto: </label>
+            <select class="custom-select custom-select-md mb-2 col-sm-4" name="id_producto">
+              @foreach ($producto as $item => $datos)
+                @if ($datos->id_empresa == $datosUser[0]->id_empresa)
+                  <option value="{{$datos->id}}" >{{$datos->codigo}}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
 
-    <form action="">
-      <div class="card">
-        <div class="card-header">
-          <h3>Solicitar mas cantidad:</h3>
-        </div>
-        <div class="card-body">
-          <select class="custom-select custom-select-lg mb-2 col-md-4">
-            <option selected>Selecciona el producto</option>
-            <option value="1">Martillo</option>
-            <option value="2">Cama</option>
-            <option value="3">Escritorio</option>
-          </select><br>
-          <h3>Cantidad:</h3>
-          <div class="input-group col-md-4">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-default">cantidad</span>
+          <div class="col-md-3">
+            <label class="mb-2">Cantidad del Producto: </label>
+            <input type="number" min="0" class="form-control col-md-8"  name="cantidad_producto" value="" required="">
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label class="mb-2">Seleciona tu bodega: </label>
             </div>
-            <input type="number" min="0" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div><br>
-          <button class="btn btn-primary col-md-3">Solicitar</button>
+            <select class="custom-select custom-select-md mb-2 col-sm-4" name="codigo_bodega">
+              @foreach ($bodega as $item => $datos)
+                @if ($bodega[$item]->id_empresa == $datosUser[0]->id_empresa)
+                  <option value="{{$datos->codigo}}" >{{$datos->codigo}}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+
+          <input type="number" hidden name="id_usuario" value="{{ $datosUser[0]->id }}">
+
+          <div class="col-md-3">
+            <label class="mb-2">Seleciona el Proveedor del Producto: </label>
+            <select class="custom-select custom-select-md mb-2 col-sm-4" name="id_proveedor">
+              @foreach ($provedor as $item => $datos)
+                @if ($provedor[$item]->id_empresa == $datosUser[0]->id_empresa)
+                  <option value="{{$datos->id}}" >{{$datos->nombre}}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+
+          <input type="number" hidden name="id_empresa" value="{{ $datosUser[0]->id_empresa }}">
+
         </div>
+      </div>
+      <div class="card-footer text-center">
+        <button type="submit" class="btn btn-primary col-md-2">Solicitar</button>
+      </div>
     </form>
-    
   </div>
 
 @stop
