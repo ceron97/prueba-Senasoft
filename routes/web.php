@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\ProveedoresController;
+use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\SucursalesController;
 use App\Http\Controllers\AdminController;
@@ -33,6 +35,8 @@ Route::get('/users/index', [UsuariosController::class, 'index'])->name('usuarios
 Route::get('/solicitar', function () {
     return view('solicitar');
 })->name('solicitar');
+
+Route::resource('solicitar', BodegaController::class);// se llama todos los recuersos de Bodega  
 
 Route::get('/adicionar', function () {
     return view('adicionar');
