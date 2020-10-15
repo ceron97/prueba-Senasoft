@@ -15,7 +15,7 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     public function usuarios()
