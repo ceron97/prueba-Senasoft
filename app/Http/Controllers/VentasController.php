@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class VentasController extends Controller
@@ -13,7 +13,8 @@ class VentasController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('ventas.index', compact('productos'));
     }
 
     /**
@@ -34,7 +35,8 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $productos = request()->all();
+        $productos = request()->except('_token');
     }
 
     /**

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UsuariosController;
-use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\VentasController;
 use App\Http\Controllers\SucursalesController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmpresasController;
@@ -30,8 +30,6 @@ Auth::routes();
 
 Route::get('/users/index', [UsuariosController::class, 'index'])->name('usuarios');
 
-Route::get('/producto', [ProductoController::class, 'index'])->name('productos');
-
 Route::get('/solicitar', function () {
     return view('solicitar');
 })->name('solicitar');
@@ -40,7 +38,8 @@ Route::get('/adicionar', function () {
     return view('adicionar');
 })->name('adicionar');
 
-Route::get('/sucursales', [SucursalesController::class, 'index'])->name('sucursales');
+Route::resource('sucursales', SucursalesController::class);// se llama todos los recuersos de la vista 
+Route::resource('ventas', VentasController::class);// se llama todos los recuersos de la vista 
 
 Route::get('/admin/index_admin', [AdminController::class, 'index'])->name('index.admin');
 

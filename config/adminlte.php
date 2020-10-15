@@ -252,9 +252,9 @@ return [
             'url'  => 'empresa/usuarios',
         ],
         [
-            'text'    => 'Productos',
+            'text'    => 'Ventas',
             'icon'    => 'fas fa-box-open',
-            'url'  => 'producto',
+            'url'  => 'ventas',
         ],
         [
             'text' => 'Solicitar articulos',
