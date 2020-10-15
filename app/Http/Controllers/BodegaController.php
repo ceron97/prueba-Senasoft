@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bodega;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 
@@ -15,8 +16,8 @@ class BodegaController extends Controller
     public function index()
     {
         $hola = 0;
-        $productos = Producto::all();
-        return view('bodega.producto',compact('productos'));
+        $productos = Bodega::all();
+        return view('bodega.bodega',compact('productos'));
     }
 
     /**
@@ -38,17 +39,13 @@ class BodegaController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $productoNuevo = new Producto;
-        $productoNuevo->nombre = $request->nombre;
-        $productoNuevo->proveedor = $request->proveedor;
-        $productoNuevo->fecha_garantia = $request->fecha_garantia;
-        $productoNuevo->codigo = $request->codigo;
-        $productoNuevo->precio = $request->precio;
+        $productoNuevo = request()->all();
+        $productoNuevo = request()->except('_token');
 
-        $productoNuevo->save();
+        $productoNuevo= Bodega::insert($productoNuevo);
+       
 
-        return view('bodega.create')->with('mensaje', 'Pedido realisado');
+        return back()->with('mensaje', 'Pedido realisado');
         
     }
 

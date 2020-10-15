@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Bodega;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Http\Arr;
@@ -15,7 +17,7 @@ class VentasController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
+        $productos = Bodega::all();
         return view('ventas.index', compact('productos'));
     }
 

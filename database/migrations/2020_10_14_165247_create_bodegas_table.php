@@ -14,16 +14,14 @@ class CreateBodegasTable extends Migration
     public function up()
     {
         Schema::create('bodegas', function (Blueprint $table) {
+            
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion')->nullable();
+            $table->integer('cantidad');
+            $table->integer('precio');
             $table->integer('codigo');
-            $table->bigInteger('id_usuarios')->unsigned();
-            $table->foreign('id_usuarios')->references('id')->on('users');
-            $table->bigInteger('id_sucursal')->unsigned();
-            $table->foreign('id_sucursal')->references('id')->on('sucursales');
-            $table->bigInteger('id_proveedor')->unsigned();
-            $table->foreign('id_proveedor')->references('id')->on('proveedores');
-            $table->bigInteger('id_empresa')->unsigned();
-            $table->foreign('id_empresa')->references('id')->on('empresas');
+            $table->integer('fecha_garantia');
             $table->timestamps();
         });
     }

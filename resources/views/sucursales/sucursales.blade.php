@@ -37,12 +37,12 @@
                     <td>
                         {{-- se pasa el id para editar la sucursal  --}}
                         <a href="{{route('sucursales.edit', $item->id) }}" class="btn btn-warning"><i class="fas fa-pen"></i></a>
-                    {{-- se utliza el metodo de eliminar         --}}
-                    <form action="{{route('sucursales.destroy', $item->id)}}" class="d-inline" method="post">
-                        @method('delete')
-                        @csrf
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </form>
+                        {{-- se utliza el metodo de eliminar         --}}
+                        <form action="{{route('sucursales.destroy', $item->id)}}" class="d-inline" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        </form>
                     </td>
                     <td>
                         <a href="{{ route('sucursales.show', $item->id)}}" class="btn btn-info" ><i class="fas fa-info-circle"></i></a>

@@ -7,28 +7,16 @@
     @if ( session('mensaje') )
         <div class="alert alert-success">{{ session('mensaje') }}</div>
     @endif
-    <form action="{{ route('bodega.store') }}">
+    <form action="{{ route('bodega.store') }}" method="POST">
+        @csrf
         <div class="card">
             <div class="card-header">
                 <h3>Adicionar un nuevo producto:</h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <div class="input-group">    
-                            <h4>Proveedor:</h4>
-                            <input name="proveedor" class="form-control ml-4" type="text" name="proveedor" id="myFruit" list="mySuggestion">
-                            <datalist id="mySuggestion">
-                                @foreach ($productos as $item)
-                                    <option>{{$item->proveedor}}</option>
-                                @endforeach
-                            </datalist>
-                        </div>
-                      </div>
-                    </div>
 
-                    <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Nombre:</h4>
@@ -36,10 +24,8 @@
                         </div>
                       </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Descripción:</h4>
@@ -48,7 +34,7 @@
                       </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Cantidad:</h4>
@@ -56,10 +42,8 @@
                         </div>
                       </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-6">
+    
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Precio por unidad:</h4>
@@ -68,7 +52,7 @@
                       </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Codigo:</h4>
@@ -76,10 +60,8 @@
                         </div>
                       </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
+     
+                    <div class="col-md-4">
                       <div class="form-group">
                         <div class="input-group">    
                             <h4>Años de garantia:</h4>

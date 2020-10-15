@@ -18,7 +18,7 @@ class solicitarController extends Controller
      */
     public function index()
     {
-        $producto = Producto::all();
+        $producto = Bodega::all();
         $provedor = Proveedores::all();
         $bodega = Bodega::all();
         $idUser = auth()->id();
