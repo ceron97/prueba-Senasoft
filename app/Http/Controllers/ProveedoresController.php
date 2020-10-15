@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proveedores;
 use Illuminate\Http\Request;
 
 class ProveedoresController extends Controller
@@ -23,7 +24,9 @@ class ProveedoresController extends Controller
      */
     public function create()
     {
-        //
+        $proveedores = Proveedores::all();
+        
+        return view('empresa.proveedores', compact('proveedores'));
     }
 
     /**
@@ -34,7 +37,12 @@ class ProveedoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $proveedor = $request->all();
+        $proveedor = $request->except()->token;
+
+        Proveedores::insert($nuevoProveedor);
+
+        return view('empresa.proveedores')->with('mensaje', 'Proveedor creado');
     }
 
     /**

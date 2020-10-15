@@ -29,14 +29,6 @@ class EmpresasController extends Controller
 
     }
 
-    public function proveedores()
-    {
-        $proveedores = Proveedores::all();
-        
-        return view('empresa.proveedores', compact('proveedores'));
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
