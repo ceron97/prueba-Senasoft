@@ -53,11 +53,12 @@ class VentasController extends Controller
 
         $i=0;
         $a=0;
+        $idProducto = [];
 
         foreach ($arrayProductos as $keyArrayProductos) {
             foreach ($productos as $keyProductos) {
                 if ($arrayProductos[$i] == $productos[$a]->id) {
-                    echo $productos[$a]->nombre. " - ";
+                    $idProducto[$i] = $productos[$a]->nombre;
                     break;
                 }
                 $a=$a+1;
@@ -65,6 +66,11 @@ class VentasController extends Controller
             $i=$i+1;
             $a=0;
         }
+
+        foreach ($idProducto as $keyProductos => $valor) {
+            echo $idProducto[$keyProductos];
+        }
+
     }
 
     /**
