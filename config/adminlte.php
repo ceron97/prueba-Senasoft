@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Aero | ',
+    'title_prefix' => 'Sigo | ',
     'title_postfix' => '',
 
     /*
@@ -253,13 +253,13 @@ return [
         ],
         [
             'text'    => 'Ventas',
-            'icon'    => 'fas fa-box-open',
+            'icon'    => 'fas fa-shopping-cart ',
             'url'  => 'ventas',
         ],
         [
             'text' => 'Solicitar articulos',
             'url'  => 'solicitar',
-            'icon'    => 'fas fa-shopping-cart',
+            'icon'    => 'fas fa-box-open',
         ],
         // ['header' => 'account_settings'],
         [
@@ -327,7 +327,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -362,7 +362,7 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -372,7 +372,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

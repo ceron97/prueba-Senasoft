@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Http\Arr;
+
 
 class VentasController extends Controller
 {
@@ -37,6 +39,9 @@ class VentasController extends Controller
     {
         $productos = request()->all();
         $productos = request()->except('_token');
+        $productos["0"] = $productos['0'];
+           
+        var_dump($productos);
     }
 
     /**
