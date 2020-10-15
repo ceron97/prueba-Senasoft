@@ -58,7 +58,7 @@ class VentasController extends Controller
         foreach ($arrayProductos as $keyArrayProductos) {
             foreach ($productos as $keyProductos) {
                 if ($arrayProductos[$i] == $productos[$a]->id) { 
-                    $idProducto[$i] = $productos[$a]->nombre;
+                    $idProducto[$i] = $productos[$a]->id;
                     break;
                 }
                 $a=$a+1;
@@ -67,12 +67,7 @@ class VentasController extends Controller
             $a=0;
         }
 
-        // foreach ($idProducto as $keyProductos => $valor) {
-        //     echo $idProducto[$keyProductos];
-        // }
-
-        $idProducto['cantidad'];
-        return view('ventas.facturar',compact('idProducto'));
+        return view('ventas.facturar',compact('idProducto', 'productos'));
 
     }
 

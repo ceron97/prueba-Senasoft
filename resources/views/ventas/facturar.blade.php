@@ -9,32 +9,35 @@
 @stop
 
 @section('content')
-    <table class="table">
-        <thead class="thead-dark ">
-        <tr class="center">
-            <th scope="col">nombre</th>
-            <th scope="col">descripcion</th>
-            <th scope="col">precio</th>
-            <th scope="col">cantidad</th>
-            <th scope="col">garantia</th>
-            <th scope="col">Acciones</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach ($venta as $item)
-                <tr>
-                    <th scope="row">{{$item->precio}}</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <form role="form" method="POST">
+        @csrf
+        <div class="card">
+            <div class="card-header">
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <h5>
+                    Por favor llena la cantidad de productos
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach ($idProducto as $key => $element)
+                        <div class="col col-md-3">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <label class="mt-1">{{ $productos[$key]->nombre }}: </label>
+                                    <input type="number" class="form-control input-lg ml-4" name="">
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </form>
 @stop
 
 
