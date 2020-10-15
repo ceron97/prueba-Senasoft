@@ -20,7 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'rol',
     ];
 
     /**
@@ -44,5 +43,15 @@ class User extends Authenticatable
 
     public function adminlte_profile_url(){
         return 'home';
+    }
+
+    public function roles()
+    {
+        return $this->belongsTo(Roles::class, 'role_id');
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo(Empresas::class, 'id_empresa');
     }
 }

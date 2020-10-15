@@ -35,7 +35,7 @@
       <div class="row justify-content-center">
           <div class="col-md-6">
               <div class="card">
-                  <div class="card-header">{{ __('Login') }}</div>
+                  <div class="card-header">{{ __('Ingresar') }}</div>
   
                   <div class="card-body">
                       <form method="POST" action="{{ route('login') }}">

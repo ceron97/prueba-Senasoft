@@ -14,8 +14,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
-        return view('productos.index', compact('productos'));
+        
     }
 
     
@@ -38,11 +37,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $productos = request()->all();
-        $productos = request()->except('_token');
-
         
-        // $productos = Producto::find
     }
 
     /**

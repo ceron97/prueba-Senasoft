@@ -237,24 +237,40 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'Usuarios',
-            'url'  => 'home',
-            'can'  => 'admin',
+            'text' => 'Empresas',
+            'icon'    => 'fas fa-building',
+            'url'  => 'admin/index_admin',
         ],
         [
-            'text'    => 'Productos',
+            'text' => 'Usuarios',
+            'icon'    => 'fas fa-user',
+            'url'  => 'admin/usuarios',
+        ],
+        [
+            
+            'text'    => 'Bodega',
             'icon'    => 'fas fa-box-open',
-            'url'  => 'productos',
+            'url'  => 'bodega',
+
+            'text' => 'Usuarios',
+            'icon'    => 'fas fa-user',
+            'url'  => 'empresa/usuarios',
+        ],
+        [
+            'text'    => 'Ventas',
+            'icon'    => 'fas fa-shopping-cart ',
+            'url'  => 'ventas',
+
         ],
         [
             'text' => 'Solicitar articulos',
             'url'  => 'solicitar',
-            'icon'    => 'fas fa-shopping-cart',
+            'icon'    => 'fas fa-box-open',
         ],
         // ['header' => 'account_settings'],
         [
             'text' => 'Adicionar',
-            'url'  => 'adicionar',
+            'url'  => 'bodega/create',
             'icon' => 'fas fa-cash-register',
         ],
         [
@@ -317,7 +333,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -362,7 +378,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

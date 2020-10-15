@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Http\Arr;
+
 
 class VentasController extends Controller
 {
@@ -13,7 +15,8 @@ class VentasController extends Controller
      */
     public function index()
     {
-        //
+        $productos = Producto::all();
+        return view('ventas.index', compact('productos'));
     }
 
     /**
@@ -34,7 +37,43 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $inputValue = $request->all();
+
+        $request->validate([
+            'producto' => 'required',
+        ]);
+
+        $arrayTostring = implode(',', $request->input('producto'));
+
+
+        $productos = Producto::all();
+
+        $arrayProductos= preg_split("/[,]/",$arrayTostring);
+
+        $i=0;
+        $a=0;
+        $idProducto = [];
+
+        foreach ($arrayProductos as $keyArrayProductos) {
+            foreach ($productos as $keyProductos) {
+                if ($arrayProductos[$i] == $productos[$a]->id) { 
+                    $idProducto[$i] = $productos[$a]->nombre;
+                    break;
+                }
+                $a=$a+1;
+            }
+            $i=$i+1;
+            $a=0;
+        }
+
+        // foreach ($idProducto as $keyProductos => $valor) {
+        //     echo $idProducto[$keyProductos];
+        // }
+
+        $idProducto['cantidad'];
+        return view('ventas.facturar',compact('idProducto'));
+
     }
 
     /**
@@ -62,7 +101,6 @@ class VentasController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
